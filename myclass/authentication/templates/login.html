@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+{% if message %}
+<script>
+    alert('{{ message }}')
+</script>
+{% endif %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenue</title>
+    <!-- Google font Oswald -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* font-family: 'Oswald', sans-serif; */
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 400;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            height: 100vh;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .container{
+            position: relative;
+            max-width: 400px;
+            width: 100%;
+            background: #fff;
+            padding: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .container header{
+            font-size: 1.5rem;
+            color: #000;
+            font-weight: 700;
+            text-align: center;
+        }
+        .container form{
+            margin-top: 30px;
+        }
+        .form .input-box{
+            width: 100%;
+            margin-top: 20px;
+        }
+        .input-box label{
+            color: #000;
+        }
+        .form :where(.input-box input){
+            position: relative;
+            height: 50px;
+            width: 100%;
+            outline: none;
+            font-size: 1rem;
+            color: #000;
+            margin-top: 8px;
+            border: 1px solid #ddd;
+            padding: 0 15px;
+        }
+        .input-box input:focus{
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .border{
+            margin-top: 20px;
+            padding: 5px;
+            background-color: #000;
+            text-align: center;
+        }
+        .loginbtn{
+            font-family: 'Oswald', sans-serif;
+            background-color: none;
+            
+        }
+        .click-text a{
+            color: #000;
+            padding: 10px 0px 0px;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 20px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .rememberme{
+            margin-top: 20px;
+        }
+        .btn{
+            background-color: #000;
+            color: #fff;
+            font-size: 1rem;
+        }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/toLogin/" class="form" method="post">
+            {% csrf_token %}
+            <header>Bienvenue</header>
+                <div class="input-box">
+                    <label>Email</label>
+                    <input type="email" name="email" id="email" placeholder="Saisir votre e-mail" required />
+                </div>
+                <div class="input-box">
+                    <label>Mot de passe</label>
+                    <input type="password" name="pwd" id="pwd" placeholder="Saisir votre mot de passe" required />
+                </div>            
+                <div class="border">
+                    <button type="submit" class="btn">Se connecter</button>
+                </div>
+                <div class="rememberme">
+                    <input type="checkbox" name="remember" id="remembers">
+                    <label for="remember">Rester connecté</label>
+                </div>
+                <div class="click-text">
+                    <a href="#">Mot de passe oublié?</a>
+                </div> 
+        </form>
+    </div>
+</body>
+</html>

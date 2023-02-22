@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>Panel d'annonce</title>
+    <!-- Google font Oswald -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 400;
+    }
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        animation: gradient 15s ease infinite;
+        height: 100vh;
+    }
+    @keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+    }
+    .container{
+        position: relative;
+        max-width: 700px;
+        width: 100%;
+        background: #fff;
+        padding: 25px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    .container header{
+        font-size: 1.5rem;
+        color: #000;
+        font-weight: 700;
+        text-align: center;
+    }
+    .container form{
+        margin-top: 30px;
+    }
+    form .input-box{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .input-box label{
+        color: #000;
+    }
+    form :where(.input-box input, .select-box){
+        position: relative;
+        height: 50px;
+        width: 100%;
+        outline: none;
+        font-size: 1rem;
+        color: #000;
+        margin-top: 8px;
+        border: 1px solid #ddd;
+        padding: 0 15px;
+    }
+    .input-box input:focus{
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    form .column{
+        display: flex;
+        column-gap: 15px;
+    }
+    .select-box select{
+        height: 100%;
+        width: 100%;
+        outline: 0px !important;
+        border: 0 !important; 
+        -webkit-appearance: none; 
+        -moz-appearance: none;
+        font-size: 1rem;
+    }
+    .btn{
+        margin-top: 20px;
+        width: 20%;
+        padding: 10px;
+        border:  0;
+        outline: none;
+        cursor: pointer;
+        color: #fff;
+        background: black;
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    a{
+        text-decoration: none;
+        color: #fff;
+    }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <header>Changement des salles des cours</header>
+        <form action="/submitform/" method="post">
+            {% csrf_token %}
+            <div class="input-box">
+                <label>Filière concernée</label>
+                <!-- Filière concernée -->
+                    <div class="select-box">
+                    <select id="filierselect" name="class">
+                        <optgroup label="Informatique Appliquée">
+                            <option value="IA-1.1">IA-1.1</option>
+                            <option value="IA-1.2">IA-1.2</option>
+                            <option value="IA-2.1">IA-2.1</option>
+                            <option value="IA-2.2">IA-2.2</option>
+                            <option value="IA-3.1">IA-3.1</option>
+                            <option value="IA-3.2">IA-3.2</option>
+                        </optgroup>
+                        <optgroup label="Electronique Industrielle">
+                            <option value="EI-1.1">EI-1.1</option>
+                            <option value="EI-1.2">EI-1.2</option>
+                            <option value="EI-1.3">EI-1.3</option>
+                            <option value="EI-2.1">EI-2.1</option>
+                            <option value="EI-2.2">EI-2.2</option>
+                            <option value="EI-2.3">EI-2.3</option>
+                            <option value="EI-3.1">EI-3.1</option>
+                            <option value="EI-3.2">EI-3.2</option>
+                            <option value="EI-3.3">EI-3.3</option> 
+                        </optgroup>
+                        <optgroup label="Mécatronique">
+                            <option value="MEC-1.1">MEC-1.1</option>
+                            <option value="MEC-1.2">MEC-1.2</option>
+                            <option value="MEC-2.1">MEC-2.1</option>
+                            <option value="MEC-2.2">MEC-2.2</option>
+                            <option value="MEC-3.1">MEC-3.1</option>
+                            <option value="MEC-3.2">MEC-3.2</option> 
+                        </optgroup>
+                        <optgroup label="Télécoms Embarquées">
+                            <option value="GTE-1.1">GTE-1.1</option>
+                            <option value="GTE-2.1">GTE-2.1</option>
+                            <option value="GTE-3.1">GTE-3.1</option>
+                        </optgroup>
+                        <optgroup label="Mécanique & Productique">
+                            <option value="GMP-1.1">GMP-1.1</option>
+                            <option value="GMP-2.1">GMP-2.1</option>
+                            <option value="GMP-3.1">GMP-3.1</option>
+                        </optgroup>
+                    </select>
+                    </div>
+            </div>
+                <div class="input-box">
+                    <label>Enseignant concerné</label>
+                    <input type="text" placeholder="Nom & Prénom du l'enseignant concerné" name="subteach" required />
+                </div>
+                <div class="input-box">
+                    <label>Matière</label>
+                    <input type="text" placeholder="Nom du matière" name="sub" required />
+                </div>
+                <div class="column">
+                    <div class="input-box">
+                        <label>Date</label>
+                        <input type="date" placeholder="Date du changement" name="subdate" required />
+                    </div>
+                    <div class="input-box">
+                        <label>Séance</label>
+                        <div class="select-box">
+                        <select id="seanceselect" name="subsession">
+                            <option value="S1">S1</option>
+                            <option value="S2">S2</option>
+                            <option value="S3">S3</option>
+                            <option value="S4">S4</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="input-box">
+                        <label>Ancienne salle</label>
+                        <input type="text" placeholder="Saisir l'ancienne salle" name="suboc" required />
+                    </div>
+                    <div class="input-box">
+                        <label>Nouvelle salle</label>
+                        <input type="text" placeholder="Saisir la nouvelle salle" name="subnc" required />
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="btn">
+                        <a href="/home/">Retourner</a>
+                    </div>
+                    <div class="btn">
+                        <a href="/logs/">Voir historique</a>
+                    </div>
+                    <button type="submit" class="btn">Envoyer</button>
+                </div>
+            </form>
+        </section>
+</body>
+</html>

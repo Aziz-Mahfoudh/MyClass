@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Télécharger</title>
+    <!-- Google font Oswald -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Oswald', sans-serif; */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.container{
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    background: #fff;
+    padding: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.container form{
+    width: 100%;
+    height: 200px;
+    border: 3px dashed #303247;
+}
+form{
+   position: relative;
+}
+form p{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 200px;
+    color: #000;
+    font-weight: 500;
+}
+form input{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+}
+.column{
+    display: flex;
+    column-gap: 15px;
+}
+.btn{
+    margin-top: 20px;
+    padding: 5px 20px;
+    border:  0;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #000;
+}
+.border{
+    margin-top: 20px;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 20px;
+    font-size: 15px;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="container-form">
+            <div class="form">
+            <form>
+                <div class="input-box">
+                    <input type="file" multiple>
+                    <p>Faites glisser votre fichier ici ou cliquez sur cette zone.</p>
+                </div>    
+            </form>
+            </div>
+            <div class="column">
+                <div class="border">
+                    <a href="/home">Retourner</a>
+                </div>
+                <button type="submit" class="btn">Mettre à jour</button>
+            </div>    
+        </div>
+    </div>
+</body>
+</html>
+

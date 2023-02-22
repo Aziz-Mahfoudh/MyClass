@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* font-family: 'Oswald', sans-serif; */
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 400;
+    }
+    body{
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        height: 100vh;
+    }
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    .container{
+        position: relative;
+        max-width: 1200px;
+        width: 100%;
+        background: #fff;
+        padding: 25px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    .container header{
+        font-size: 1.5rem;
+        color: #000;
+        font-weight: 700;
+        text-align: center;
+    }
+    th {
+        padding: 10px;
+    }
+    td{
+        text-align: center;
+        padding: 10px;
+    }
+    tbody > tr:nth-child(even){
+        background-color: rgb(244, 244, 244);
+    }
+    .table{
+        margin-top: 30px
+    }
+    a{
+        text-decoration: none;
+        color: #000;
+    }
+    thead > tr {
+        background-color: #000;
+        color: #fff;
+    }
+    .dltbtn {
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+    .dltbtn:hover {
+        border: 1px solid rgba(255, 255, 255, 0);
+        background-color: #ddd;
+    }
+    .footer {
+        text-align: center;
+        position: fixed;
+        bottom: 20px;
+    }
+    .rtnbtn{
+        margin: 20px auto 0;
+        width: 10%;
+        padding: 10px;
+        text-align: center;
+        background-color: #000;
+    }
+    .rtnbtn > a {
+        color: #fff;
+    }
+    </style>
+    </head>
+    <body>
+        <main>
+            <div class="container">
+                <header>Historique</header>
+                <div class="table">
+                    <table border="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="col-title">Date</th>
+                                <th class="col-title">Filière concernée</th>
+                                <th class="col-title">Nouvelle salle</th>
+                                <th class="col-title">Ancienne salle</th>
+                                <th class="col-title">Séance</th>
+                                <th class="col-title">Matière</th>
+                                <th class="col-title">Enseignant concerné</th>
+                                <th class="col-title">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key, values in changes.items %}
+                            <tr>
+                                <td>{{ values.Date }}</td>
+                                <td>{{ values.Major }}</td>
+                                <td>{{ values.NewClassroom }}</td>
+                                <td>{{ values.OldClassroom }}</td>
+                                <td>{{ values.Session }}</td>
+                                <td>{{ values.Subject }}</td>
+                                <td>{{ values.Teacher }}</td>
+                                <td>
+                                    <div class="dltbtn">
+                                        <a href="/deletechange/{{ key }}">Supprimer</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="rtnbtn">
+                    <a href="/form/">Retourner</a>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

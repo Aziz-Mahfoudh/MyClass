@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heyy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* font-family: 'Oswald', sans-serif; */
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 400;
+    }
+    body{
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        height: 100vh;
+    }
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    .container{
+        background-color: #fff;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    .photo{
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-gap: 6px;
+        justify-content: center;
+    }
+    .item{
+        display: grid;  
+        justify-content: center;
+        align-items: center;
+    }
+    .content{
+        display: grid;
+        grid-template-rows: repeat(6, 1fr);
+    }
+    .header{
+        margin: 5px;
+        padding: 5px;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        background-color: #000;
+        color: #fff;
+        font-weight: 700;
+    }
+    div.opbtn{
+        padding: 5px 10px;
+        margin: 5px;
+        border: 1px solid #ddd;
+        
+    }
+    div.opbtn:hover{
+        background-color: #ddd;
+        animation: gradient 15s ease infinite;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(194, 194, 194, 0);
+    }
+    div > a{
+        text-decoration: none;
+        color: #000;
+    }
+    .profile img {
+        padding: 5px;
+        border: 1px solid #ddd;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+    .logout > a{
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        padding: 0 20px 2px;
+        border: 1px solid rgb(194, 194, 194);
+    }
+    .logout > a:hover{
+        background-color: #000;
+        color: rgb(255, 255, 255);
+    }
+    span.btn:nth-child(even){
+        font-weight: bolder;
+    }
+    .logoutbtn{
+        background-color: #000;
+        color: #fff;
+        padding: 5px;
+        margin-top: 20px;
+        font-size: 1rem;
+    }
+    .id{
+        margin-top: 20px;
+    }
+    .bold{
+        font-weight: 700;
+    }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="profile">
+                <div class="photo">
+                    <img src="DSC_0970.JPG" alt="image de profile">
+                    <span class="btn id"><label class="bold">ID :</label></span>
+                    <span class="btn idvar"><label>UIF7383</label></span>
+                    <span class="btn name"><label class="bold">Nom & Prènom :</label></span>
+                    <span class="btn namevar"><label>Mohamed Aziz Mahfoudh</label></span>
+                    <span class="btn status"><label class="bold">Status :</label></span>
+                    <span class="btn statusvar"><label>Administration</label></span>
+                    <form action="/">
+                    <button type="submit" class="logoutbtn">Logout</button>
+                    </form>
+                </div>
+            </div>
+            <div class="op">
+                <div class="header"><h3>Opérations</h3></div>
+                <div class="content">
+                    <div class="opbtn"><a class="item" href="/form/">Changer des salles</a></div>
+                    <div class="opbtn"><a class="item" href="#">Plannifier un rattrapage</a></div>
+                    <div class="opbtn"><a class="item" href="#">Plannifier un rattrapage</a></div>
+                    <div class="opbtn"><a class="item" href="#">Créer une annonce</a></div>
+                    <div class="opbtn"><a class="item" href="#">Organiser une visite entreprise</a></div>
+                    <div class="opbtn"><a class="item" href="/upload/">Télécharger un nouvel emploi</a></div>
+                </div>
+                <div class="footer"></div>
+            </div>
+        </div>
+    </body>
+</html>
